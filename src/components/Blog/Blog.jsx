@@ -1,0 +1,57 @@
+import PropTypes from "prop-types";
+
+const Blog = ({ blog }) => {
+    const {
+        cover,
+        title,
+        author,
+        author_img,
+        posted_date,
+        reading_time,
+        hashtags,
+    } = blog;
+
+    return (
+        <div>
+            <img className="rounded-lg mb-4" src={cover} alt="" />
+            <div className="flex justify-between items-center mb-4">
+                <div className="flex gap-4 items-center">
+                    <img
+                        className="rounded-full w-[60px]"
+                        src={author_img}
+                        alt=""
+                    />
+                    <div>
+                        <h3 className="text-2xl font-bold">{author}</h3>
+                        <p className="font-semibold text-gray-400">
+                            {posted_date}
+                        </p>
+                    </div>
+                </div>
+                <div className="flex gap-2 text-xl font-medium text-gray-400 items-center">
+                    <p>{reading_time} min read</p>
+                    <button className="btn btn-ghost">BM</button>
+                </div>
+            </div>
+            <h1 className="text-4xl font-bold mb-4">{title}</h1>
+            {hashtags.map((hash) => (
+                <p
+                    key={hash}
+                    className="text-xl font-medium text-gray-400 inline mr-4"
+                >
+                    #{hash}
+                </p>
+            ))}
+            <button className="btn btn-link block font-semibold p-0 ">
+                Mark As Read
+            </button>
+            <p className="border-b mb-4"></p>
+        </div>
+    );
+};
+
+export default Blog;
+
+Blog.propTypes = {
+    blog: PropTypes.object.isRequired,
+};
