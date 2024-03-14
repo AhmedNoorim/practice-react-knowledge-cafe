@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-const Bookmarks = ({ bookmark }) => {
+const Bookmarks = ({ bookmark, readingTime }) => {
     return (
         <div className="md:col-span-1">
             <div className="p-4 bg-violet-200 border border-violet-500 rounded-lg">
                 <h5 className="text-2xl text-violet-600 font-bold text-center">
-                    Spent time on read: 111min
+                    Spent time on read: {readingTime}min
                 </h5>
             </div>
             <div className="p-4 mt-4 bg-gray-200 rounded-lg">
@@ -33,4 +33,5 @@ export default Bookmarks;
 
 Bookmarks.propTypes = {
     bookmark: PropTypes.array.isRequired,
+    readingTime: PropTypes.number.isRequired,
 };
